@@ -10,8 +10,11 @@ namespace GiftAidCalculator.TestConsole
             Console.WriteLine("Please Enter tax rate (i.e 20 or 25.7):");
             var taxRate = decimal.Parse(Console.ReadLine());
             var calculator = new Calculator(taxRate);
-			Console.WriteLine("Please Enter donation amount:");
-			Console.WriteLine(calculator.CalculateGiftAidAmount(decimal.Parse(Console.ReadLine())));
+            var presenter = new AmountPresenter();
+
+            Console.WriteLine("Please Enter donation amount:");
+            var amount = calculator.CalculateGiftAidAmount(decimal.Parse(Console.ReadLine()));
+            Console.WriteLine(presenter.GetAmountForDisplay(amount));
 			Console.WriteLine("Press any key to exit.");
 			Console.ReadLine();
 		}
