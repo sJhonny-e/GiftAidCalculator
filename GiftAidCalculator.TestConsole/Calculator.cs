@@ -7,10 +7,15 @@ namespace GiftAidCalculator.TestConsole
 {
     public class Calculator
     {
-        private const decimal TAX_RATE = 20m;
+        private decimal _taxRate;
+
+        public Calculator(decimal taxRate)
+        {
+            _taxRate = taxRate;
+        }
         public decimal CalculateGiftAidAmount(decimal donationAmount)
         {
-            var ratio = TAX_RATE / (100 - TAX_RATE);
+            var ratio = _taxRate / (100 - _taxRate);
             return donationAmount * ratio;
         }
     }

@@ -7,7 +7,9 @@ namespace GiftAidCalculator.TestConsole
 		static void Main(string[] args)
 		{
             // Calc Gift Aid Based on Previous
-            var calculator = new Calculator();
+            Console.WriteLine("Please Enter tax rate (i.e 20 or 25.7):");
+            var taxRate = decimal.Parse(Console.ReadLine());
+            var calculator = new Calculator(taxRate);
 			Console.WriteLine("Please Enter donation amount:");
 			Console.WriteLine(calculator.CalculateGiftAidAmount(decimal.Parse(Console.ReadLine())));
 			Console.WriteLine("Press any key to exit.");
