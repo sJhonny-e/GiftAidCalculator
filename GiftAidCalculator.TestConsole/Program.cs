@@ -6,17 +6,13 @@ namespace GiftAidCalculator.TestConsole
 	{
 		static void Main(string[] args)
 		{
-			// Calc Gift Aid Based on Previous
+            // Calc Gift Aid Based on Previous
+            var calculator = new Calculator();
 			Console.WriteLine("Please Enter donation amount:");
-			Console.WriteLine(GiftAidAmount(decimal.Parse(Console.ReadLine())));
+			Console.WriteLine(calculator.CalculateGiftAidAmount(decimal.Parse(Console.ReadLine())));
 			Console.WriteLine("Press any key to exit.");
 			Console.ReadLine();
 		}
-
-		static decimal GiftAidAmount(decimal donationAmount)
-		{
-			var gaRatio = 17.5m / (100 - 17.5m);
-			return donationAmount * gaRatio;
-		}
+        		
 	}
 }
