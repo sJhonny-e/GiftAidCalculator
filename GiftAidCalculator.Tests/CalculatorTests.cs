@@ -1,4 +1,5 @@
 ﻿using GiftAidCalculator.TestConsole;
+using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,17 @@ namespace GiftAidCalculator.Tests
         {
             var calculator = new Calculator(40m);
             Assert.AreEqual(100m * (2/3m), calculator.CalculateGiftAidAmount(100));
+        }
+
+        [Test]
+        public void CalculateGiftAidAmount_WithAPromotion_ReturnsWhateverThePromotionSays()
+        {
+            var promotionMock = new Mock<IPromotion>();
+            // we expect the mock to be called with the donation value
+            promotionMock.Setup(promotion => promotion.Apply(25m)).Returns(187.55m);
+
+            var calculator = new Calculator(20m);
+            Assert.AreEqual(187.55m, calculator.CalculateGiftAidAmount(100, promotionMock.Object));
         }
 
     }

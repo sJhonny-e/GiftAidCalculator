@@ -52,7 +52,11 @@
   <ItemGroup>
     <Compile Include="AmountPresenter.cs" />
     <Compile Include="Calculator.cs" />
+    <Compile Include="EventType.cs" />
+    <Compile Include="IPromotion.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Promotions\PromotionsFactory.cs" />
+    <Compile Include="Promotions\SupplamentPromotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
